@@ -4,7 +4,6 @@ class string {
     public:
     	string (const string& str);
      ~string();
- 
      const char* c_str() const;
      bool empty() const ;
      void reserve (size_t n);
@@ -33,5 +32,6 @@ class string {
         size_t capacity_;
         static size_t max_size_ = 100;
 }
+
 
 
