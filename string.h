@@ -1,5 +1,5 @@
 
-
+ 
 class string {
     public:
     	string (const string& str);
@@ -24,5 +24,5 @@ class string {
         char* str_;
         size_t size_;
         size_t capacity_;
-        static size_t max_size_;
+        static size_t max_size_ = 100;
 }
