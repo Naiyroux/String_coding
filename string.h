@@ -7,7 +7,7 @@ class string {
  
      const char* c_str() const;
      bool empty() const ;
-     void reserve (size_t size_);
+     void reserve (size_t n);
      size_t size() const;
      void clear() noexcept;
      size_t length() const;
@@ -33,4 +33,5 @@ class string {
         size_t capacity_;
         static size_t max_size_ = 100;
 }
+
 
