@@ -2,7 +2,14 @@
 
 class string {
     public:
-        int test;
+    	string (const string& str);
+        string& operator= (char c);
+        string operator+ (const string& lhs, const char*   rhs);
+        const char* c_str() const noexcept;
+        size_t size() const noexcept;
+        void clear() noexcept;
+        
+        
 
     private:
         char* str_;
