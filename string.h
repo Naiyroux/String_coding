@@ -1,4 +1,5 @@
 
+ 
 class string {
     public:
      string (const string& str);
@@ -35,10 +36,3 @@ class string {
 
 
 
-
-    private:
-        char* str_;
-        size_t size_;
-        size_t capacity_;
-        static size_t max_size_;
-}
