@@ -9,7 +9,7 @@ string::string(const string& str) {
     for (size_t i = 0; i < size_; i++) {
         str_[i] = str.str_[i];
     }
-    str_[size_] = '\0'; // Utiliser '\0' (char) et non "\0" (string)
+    str_[size_] = '\0';
 }
 
 const char* string::c_str() const noexcept {
