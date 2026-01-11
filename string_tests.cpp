@@ -1,9 +1,21 @@
+#include <cstdlib>
 #include <iostream>
 #include <string>    // Pour comparer
 #include "string.h"
 
+
+// Initialisation des tests
+int t_capacity();
+int t_empty();
+int t_reserve(size_t);
+int t_operator=(const char*);
+int t_operator+(const string&, const string&);
+
+
 int main() {
-    std::cout << "--- TEST DE MA CLASSE STRING ---" << std::endl;
+	std::cout << "Hello World!" << std::endl ;
+	return 0 ;
+}
 
     // Test 1: Constructeur et Taille
     string s1("Hello");
@@ -24,3 +36,4 @@ int main() {
 
     return 0;
 }
+

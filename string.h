@@ -16,8 +16,9 @@ class string {
      size_t capacity() const (size_t n);
      void resize (size_t n);
      void resize (size_t n, char c);
+     // Operator functions
      string& operator= (char c);
-     string& operator=(const char*);
+     string& operator=(const char* str);
      string& operator=(const string& str);
      friend string operator+ (const string& lhs, const char* rhs);
      friend string operator+ (const string& lhs, const string& rhs);
@@ -28,7 +29,7 @@ class string {
 
         
 
-    private:
+    protected:
         char* str_;
         size_t size_;
         size_t capacity_;
