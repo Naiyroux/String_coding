@@ -47,6 +47,7 @@ string::string() : size_(0), capacity_(0) {
     str_[0] = '\0';
 }
 
+// Constructeur copie avec c string
 string::string(const char* str) {
     if (str == nullptr) {
         size_ = 0;
@@ -68,28 +69,35 @@ string::string(const char* str) {
         }
     }
 
+// Renvoie taille de la string 
 size_t string::length() const noexcept{
     return size_;
 };
 
+// Renvoie le maximum possible pour la taille 
 size_t string::max_size() const noexcept{
     return max_size_;
 };
 
+// Change la taille de la string 
 void string::resize (size_t n){
     if (n > max_size_){
-        // return error, à modifier
         throw std::length_error("String too long");
     }
     else if (n < size_){
+        if (n > capacity_) {
+            reserve(n);
+        }
         size_ =  n;
+        str_[size_] = '\0';
     }
 }
 
-void string::resize (size_t n, char c){
-    if (n > max_size_){
 
-        
+// Change la taille de la string et si n > size_, remplissage de la string de size à n du charactère c
+void string::resize (size_t n, char c){
+    if (n > max_size_){  
+        throw std::length_error("String too long");  
     }
     if (n <= size_){
         size_ =  n;
@@ -141,7 +149,7 @@ string string::operator+(const char* rhs)const{
 
         throw std::length_error("String too long");
     }
-
+    
     newstr.str_ = new char[newstr.size_ + 1];
 
     for (size_t i = 0; i < this->size_ ; i++){

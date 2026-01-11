@@ -23,8 +23,8 @@ int main() {
     std::cout << "Test 4 (Clear) : Taille après clear = " << s1.size() << std::endl;
 
 	// Tests Eleve B
-
-	std::cout << "Test 1 (Size) : " << (s1.length() == realS1.length() ? "OK" : "ERREUR") << std::endl;
+	
+	std::cout << "Test Length : " << (s1.length() == realS1.length() ? "OK" : "ERREUR") << std::endl;
 
     return 0;
 
