@@ -13,31 +13,77 @@ size_t string::max_size(){
 void string::resize (size_t n){
     if (n > max_size_){
         // return error, à modifier
-        return ;
+        return std::length_error;
     }
     elif (n < size_){
         size_ =  n;
     }
-};
+};  return 1;
 
 void string::resize (size_t n, char c){
     if (n > max_size_){
         // return error, à modifier
         return ;
     }
-    elif (n < size_){
+    elif (n <= size_){
         size_ =  n;
+        data_[size_] = '\0';
     }
     else{
-        for (int i = size_; i < n;i++){
-            
+        if (n > capacity_){
+            reserve(n)
         }
+        for (size_t i = size_; i < n;i++){
+                str_[i] = c;
+        }
+        size_ =  n;
+        data_[size_] = '\0';
+        
     }
-};
+}
 
-string& string::operator=(const string& str);
+string& string::operator=(const string& str){
+    if (this == &str){
+        return *this;
+    }
+    else{
+        delete[] str_;
 
-string string::operator+(const string& lhs, char rhs);
+        length = str.length;
+        str_ =  new char[length+1];
+
+        for (size_t i = 0; i<length ; i++){
+            str_[i] = str.str_[i];
+        }
+        str_[length] = '\0';
+        return *this;
+    }
+}
+
+string string::operator+(const string& lhs, char rhs){
+    string newstr;
+    
+    newstr.length = lhs.length + rhs.length;
+
+    if (n > max_size_){
+        // return error, à modifier
+        return ;
+    }
+
+    newstr.str_ = new char[newstr.length + 1]
+
+    for (size_t i = 0; i < lhs.length; i++){
+        newstr.str_[i] = lhs.str_[i];
+    }
+
+    for (size_t j = 0; j < rhs.length; j++){
+        newstr.str_[lhs.length + j] = rhs.str_[j];
+    }
+
+    newstr_[newstr.length] = '\0';
+    return newstr;
+
+}
 string string::operator+(string&& lhs, char rhs);
 string string::operator+(char lhs, const string& rhs);
 
