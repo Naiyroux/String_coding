@@ -2,6 +2,36 @@
 #include<cstdlib>
 
 
+string::string(const string& str) {
+    size_ = str.size_;
+    capacity_ = str.capacity_;
+    str_ = new char[capacity_ + 1];
+    for (size_t i = 0; i < size_; i++) {
+        str_[i] = str.str_[i];
+    }
+    str_[size_] = '\0'; // Utiliser '\0' (char) et non "\0" (string)
+}
+
+const char* string::c_str() const noexcept {
+    return str_;
+}
+
+size_t string::size() const noexcept {
+    return size_;
+}
+
+void string::clear() noexcept {
+    size_ = 0;
+    str_[0] = '\0';
+}
+
+string& string::operator=(char c) {
+    size_ = 1;
+    str_[0] = c;
+    str_[1] = '\0';
+    return *this;
+}
+
 size_t string::length(){
     return size_t size_;
 };
