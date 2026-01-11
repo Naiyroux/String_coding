@@ -25,13 +25,9 @@ int main() {
     s1.clear();
     std::cout << "Test 4 (Clear) : Taille après clear = " << s1.size() << std::endl;
 
-	// Tests Eleve B
-	string s3("Bonjour");
-	
-
 	// Test 6 : Copie cstring
 
-	char* mot = "Holla";
+	const char* mot = "Holla";
 	std::string realS3("Holla");
 	string s3(mot);
 	
@@ -43,11 +39,21 @@ int main() {
 	// Test 8 Max_size
 	std::cout << "Test Length : " << (s3.max_size() == realS3.max_size() ? "OK" : "ERREUR") << std::endl;
 
-	// Test 8 : Resize
+	// Test 9 : Resize
 	s3.resize(20,'e');
-	std::cout << "Test 8 (Resize): " << s3.c_str() << " | Taille: " << s3.size() << std::endl;
+	std::cout << "Test 9 (Resize): " << s3.c_str() << " | Taille: " << s3.size() << std::endl;
 
-	//Test 9 :
+	//Test 10 : Operator = string&
+	string s4;
+	s4 = s3;
+	
+	std::cout << "Test 10 (=): " << s4.c_str() << " | Taille: " << s4.size() << std::endl;
+	
+	//Test 11 : Operator +
+	// --- Test 19: Opérateur + avec char* (enchaîné) ---
+	string s5("J'aime");
+	string s6 = s5 + " le" + " chocolat"; 
+	std::cout << "Test 19 (Concat char* multi): " << s6.c_str() << " | Attendu: J'aime le chocolat" << std::endl;
 
 	// Test 13: Destructeur
 	
@@ -71,7 +77,7 @@ int main() {
 	// Test 16: Reserve - augmentation de capacite
 	string s16("Hi");
 	size_t old_capacity = s16.capacity();
-	s8.reserve(100);
+	s16.reserve(100);
 	std::cout << "Test 16 (Reserve) : Ancienne capacite = " << old_capacity 
 		  << ", Nouvelle = " << s16.capacity() 
 		  << " | " << (s16.capacity() >= 100 ? "OK" : "ERREUR") << std::endl;

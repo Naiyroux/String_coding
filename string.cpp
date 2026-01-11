@@ -129,6 +129,7 @@ string& string::operator=(const string& str){
         delete[] str_;
 
         size_ = str.size_;
+        capacity_ = str.size_
         str_ =  new char[capacity_  +1];
 
         for (size_t i = 0; i < size_ ; i++){
@@ -261,7 +262,7 @@ string& string::operator=(const char* str) {
 }
 
 // Opération d'ajout de deux chaînes
-string operator+ (const string& lhs, const string& rhs){
+string string::operator+ (const string& lhs, const string& rhs){
 	string new_str;
 	size_t new_size = lhs.size() + rhs.size();
 	
@@ -280,7 +281,7 @@ string operator+ (const string& lhs, const string& rhs){
 	
 	return new_str;
 }
-=======
+
 
 
 

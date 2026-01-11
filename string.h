@@ -24,16 +24,9 @@ class string {
      string& operator= (char c);
      string& operator=(const char* str);
      string& operator=(const string& str);
-     /*
-     friend string operator+ (const string& lhs, const char* rhs);
-     friend string operator+ (const string& lhs, const string& rhs);
-     friend string operator+(const string& lhs, char rhs);
-     friend string operator+(string&& lhs, char rhs);
-     friend string operator+(char lhs, const string& rhs);
-     friend string operator+(char lhs, string&& rhs);
-    */
-     string operator+(const char* rhs)const;
-     string operator+(char rhs)const;
+     friend string operator+(const char* rhs)const;
+     friend string operator+(char rhs)const;
+     friend string operator+ (const string& lhs, const string& rhs)
         
 
     protected:
