@@ -1,4 +1,5 @@
-
+#ifndef MY_STRING_H
+#define MY_STRING_H
  
 class string {
     public:
@@ -32,7 +33,11 @@ class string {
         size_t size_;
         size_t capacity_;
         static size_t max_size_ = 100;
-}
+};
+
+#endif
+
+
 
 
 
