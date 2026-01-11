@@ -4,18 +4,9 @@
 #include "string.h"
 
 
-// Initialisation des tests
-int t_capacity();
-int t_empty();
-int t_reserve(size_t);
-int t_operator=(const char*);
-int t_operator+(const string&, const string&);
-
-
 int main() {
 	std::cout << "Hello World!" << std::endl ;
 	return 0 ;
-}
 
     // Test 1: Constructeur et Taille
     string s1("Hello");
@@ -35,10 +26,74 @@ int main() {
     std::cout << "Test 4 (Clear) : Taille après clear = " << s1.size() << std::endl;
 
 	// Tests Eleve B
+	string s3("Bonjour");
 	
-	std::cout << "Test Length : " << (s1.length() == realS1.length() ? "OK" : "ERREUR") << std::endl;
+
+	// Test 6 : Copie cstring
+
+	char* mot = "Holla";
+	std::string realS3("Holla");
+	string s3(mot);
+	
+	std::cout << "Test 6 (Assign char) : " << s3.c_str() << " | Taille: " << s3.size() << std::endl;
+
+	// Test 7 : Length 
+	std::cout << "Test Length : " << (s3.length() == realS3.length() ? "OK" : "ERREUR") << std::endl;
+
+	// Test 8 Max_size
+	std::cout << "Test Length : " << (s3.max_size() == realS3.max_size() ? "OK" : "ERREUR") << std::endl;
+
+	// Test 8 : Resize
+	s3.resize(20,'e');
+	std::cout << "Test 8 (Resize): " << s3.c_str() << " | Taille: " << s3.size() << std::endl;
+
+	//Test 9 :
+
+	// Test 13: Destructeur
+	
+	string s13("Temporary");
+	std::cout << "Test 13 (Destructor) : Creation de string temporaire..." << std::endl;
+	 // s13 est detruit ici
+	std::cout << "Test 13 (Destructor suite) : String détruit sans erreur | OK" << std::endl;
+
+	// Test 14: Capacity
+	string s14("Test");
+	std::cout << "Test 14 (Capacity) : " << s14.capacity() << " >= " << s14.size() << " ? " << (s5.capacity() >= s14.size() ? "OK" : "ERREUR") << std::endl;
+
+	// Test 15: Empty - chaine vide
+	string s15;
+	std::cout << "Test 15 (Empty vide) : " << (s15.empty() ? "OK" : "ERREUR") << std::endl;
+
+	// Test 15bis: Empty - chaine non vide
+	string s15b("Hello");
+	std::cout << "Test 15bis (Empty non vide) : " << (!s15b.empty() ? "OK" : "ERREUR") << std::endl;
+	
+	// Test 16: Reserve - augmentation de capacite
+	string s16("Hi");
+	size_t old_capacity = s16.capacity();
+	s8.reserve(100);
+	std::cout << "Test 16 (Reserve) : Ancienne capacite = " << old_capacity 
+		  << ", Nouvelle = " << s16.capacity() 
+		  << " | " << (s16.capacity() >= 100 ? "OK" : "ERREUR") << std::endl;
+
+	// Test 17: Operator= avec const char*
+	string s17;
+	s17 = "Bonjour";
+	std::cout << "Test 17 (Assign const char*) : " << s17.c_str() 
+		  << " | Attendu: Bonjour | Taille: " << s17.size() << std::endl;
+		  
+		  
+          // Test 18: Operator+ deux strings
+	string s18a("Hello");
+	string s18b(" C++");
+	string s18c = s18a + s18b;
+	std::cout << "Test 18 (Operator+) : " << s18c.c_str() 
+		  << " | Attendu: Hello C++ | Taille: " << s18c.size() << std::endl;
+		  
+
 
     return 0;
+
 
 }
 

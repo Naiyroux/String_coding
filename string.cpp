@@ -120,6 +120,7 @@ void string::resize (size_t n, char c){
     }
 }
 
+// Operateur = 
 string& string::operator=(const string& str){
     if (this == &str){
         return *this;
@@ -138,6 +139,7 @@ string& string::operator=(const string& str){
     }
 }
 
+// Operateur + avec un chaine de charactère char*
 string string::operator+(const char* rhs)const{
     string newstr;
 
@@ -169,6 +171,7 @@ string string::operator+(const char* rhs)const{
 
 }
 
+// Operateur + avec un seul charactère
 string string::operator+(char rhs)const{
     string newstr;
     
@@ -191,7 +194,7 @@ string string::operator+(char rhs)const{
     return newstr;
 
 }
-/*
+
 
 
 
@@ -203,7 +206,7 @@ string::~string() {
 }
 
 // Capacité du string
-size_t string::capacity() const (size_t n){
+size_t string::capacity() const{
     return capacity_;
 }
 
@@ -279,7 +282,5 @@ string operator+ (const string& lhs, const string& rhs){
 }
 =======
 
-string operator+ (const string& lhs, const string& rhs){
-	return lhs + rhs;
-}*/
+
 
